@@ -5,6 +5,7 @@ class Temperature {
     this.Sunday = 0;
   }
 
+  // assign temperature with a valid number
   static assignTemp(temperature) {
     return typeof temperature === "number" ? temperature : 0;
   }
@@ -22,6 +23,7 @@ class Temperature {
       const dayForecast = item.day;
       const temperature = item.temp;
 
+      // with DRY principle, I use the assignTemp function to assign temperature
       switch (dayForecast) {
         case "forecast_friday":
           temperatures.Friday = Temperature.assignTemp(temperature);
@@ -33,6 +35,7 @@ class Temperature {
           temperatures.Sunday = Temperature.assignTemp(temperature);
           break;
         default:
+          // if dayForecast is not one of the three days, throw an error
           console.log("Invalid day forecast");
           break;
       }
@@ -65,3 +68,23 @@ class Temperature {
 // }
 // testTemperature();
 
+
+
+/* Pull Request
+
+1. Changes:
+- Add a new class called Temperature
+- Add a static method called getTemperature that takes an object as a parameter
+- Add a static method called assignTemp that takes a number as a parameter
+- Add a unit test for the Temperature class
+
+2. Testing Done:
+- Run the unit test for the Temperature class
+- Run the unit test for the Temperature class with invalid data
+
+3. Area to Focus:
+- The Temperature class
+- The assignTemp method
+- The foreach loop in the getTemperature method
+
+*/
